@@ -58,11 +58,9 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
-                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" Text="{Binding Creation.Year}"/>
-                    <TextBox Grid.Column="1" Text="{Binding Creation.Month}"/>
-                    <TextBox Grid.Column="2" Text="{Binding Creation.Day}"/>
+                    <TextBox Grid.Column="0" Text="{Binding Creation.DateString}"/>
+                    <TextBlock Grid.Column="1" Text="{Binding Creation.CurrentUser.BirthDay}"/>
                 </Grid>
                 <ComboBox Grid.Row="4" Grid.Column="4" ItemsSource="{Binding SexDropdown}" SelectedItem="{Binding Creation.CurrentUser.Sex}" SelectedIndex="0"/>
             </Grid>
