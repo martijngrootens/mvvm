@@ -34,9 +34,14 @@
         public UserInspectionViewModel(UserDataBase data)
             : base(data)
         {
-            SelectCommand = new Command { Action = Select };
+            SelectCommand = new Command { Action = () => Select(NextIndex) };
+            SelectNextCommand = new Command { Action = () => Select(CurrentIndex + 1) };
+            SelectPreviousCommand = new Command { Action = () => Select(CurrentIndex - 1) };
+            SelectFirstCommand = new Command { Action = () => Select(0) };
+            SelectLastCommand = new Command { Action = () => Select(Data.Count - 1) };
+
             NextIndex = 0;
-            Select();
+            Select(NextIndex);
         }
 
         /// <summary>
@@ -88,17 +93,37 @@
         }
 
         /// <summary>
-        /// Gets the command for selecting the next user
+        /// Gets the command for selecting the user with <see cref="NextIndex"/>
         /// </summary>
         public ICommand SelectCommand { get; }
 
         /// <summary>
+        /// Gets the command for selecting the next user
+        /// </summary>
+        public ICommand SelectNextCommand { get; }
+
+        /// <summary>
+        /// Gets the command for selecting the previous user
+        /// </summary>
+        public ICommand SelectPreviousCommand { get; }
+
+        /// <summary>
+        /// Gets the command for selecting the first user
+        /// </summary>
+        public ICommand SelectFirstCommand { get; }
+
+        /// <summary>
+        /// Gets the command for selecting the last user
+        /// </summary>
+        public ICommand SelectLastCommand { get; }
+
+        /// <summary>
         /// Select the next person from th database
         /// </summary>
-        private void Select()
+        private void Select(int index)
         {
-            Trace.WriteLine($"Select [{NextIndex}]");
-            CurrentIndex = NextIndex;
+            Trace.WriteLine($"Select [{index}]");
+            CurrentIndex = index;
             CurrentUser = Data[CurrentIndex];
         }
     }

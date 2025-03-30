@@ -1,5 +1,7 @@
 ﻿namespace Mvvm.ViewModel.Models
 {
+    using Mvvm.Library.Data;
+
     /// <summary>
     /// Main view model for the application
     /// </summary>
@@ -33,6 +35,11 @@
         /// Gets the singleton instance
         /// </summary>
         public static MainViewModel Instance => instance ??= new MainViewModel();
+
+        /// <summary>
+        /// Gets the names of the <see cref="Sex"/> enum items
+        /// </summary>
+        public static string[] SexDropdown { get; } = Enum.GetNames(typeof(Sex));
 
         /// <summary>
         /// Gets the number of users in the database

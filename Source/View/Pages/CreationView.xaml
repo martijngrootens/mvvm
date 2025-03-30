@@ -15,14 +15,7 @@
         </Grid.RowDefinitions>
 
         <!--Creation Menu-->
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Create" Command="{Binding Creation.CreateCommand}"/>
-            <Button Grid.Column="1" Content="Save" Command="{Binding Creation.SaveCommand}"/>
-        </Grid>
+        <Button Grid.Row="1" Content="Save" Command="{Binding Creation.SaveCommand}"/>
 
         <!--Data Display-->
         <Grid Grid.Row="0">
@@ -33,7 +26,7 @@
             <!--Personal Info-->
             <Grid Grid.Column="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="60pt"/>
+                    <ColumnDefinition Width="80pt"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -46,17 +39,32 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0"><Run FontWeight="Bold" Text="Personal"/></TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Index:"/>
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="ID:"/>
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Full name:"/>
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Date of Birth:"/>
-                <TextBlock Grid.Row="5" Grid.Column="0" Text="Sex:"/>
+                
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="ID:"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="First/Last name:"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Year/Month/Day:"/>
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Sex:"/>
 
-                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding NumUsers}"/>
-                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Creation.CurrentUser.Id}"/>
-                <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding Creation.CurrentUser.FullName}"/>
-                <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding Creation.CurrentUser.BirthDay}"/>
-                <TextBlock Grid.Row="5" Grid.Column="4" Text="{Binding Creation.CurrentUser.Sex}"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Creation.CurrentUser.Id}"/>
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" Text="{Binding Creation.CurrentUser.FirstName}"/>
+                    <TextBox Grid.Column="1" Text="{Binding Creation.CurrentUser.LastName}"/>
+                </Grid>
+                <Grid Grid.Row="3" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" Text="{Binding Creation.Year}"/>
+                    <TextBox Grid.Column="1" Text="{Binding Creation.Month}"/>
+                    <TextBox Grid.Column="2" Text="{Binding Creation.Day}"/>
+                </Grid>
+                <ComboBox Grid.Row="4" Grid.Column="4" ItemsSource="{Binding SexDropdown}" SelectedItem="{Binding Creation.CurrentUser.Sex}" SelectedIndex="0"/>
             </Grid>
 
             <!--Address Info-->
@@ -74,15 +82,16 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0"><Run FontWeight="Bold" Text="Address"/></TextBlock>
+
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="Street:"/>
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="City:"/>
                 <TextBlock Grid.Row="3" Grid.Column="0" Text="Region:"/>
                 <TextBlock Grid.Row="4" Grid.Column="0" Text="PostalCode:"/>
 
-                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Creation.CurrentUser.Addresss.Street}"/>
-                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Creation.CurrentUser.Addresss.City}"/>
-                <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding Creation.CurrentUser.Addresss.Region}"/>
-                <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding Creation.CurrentUser.Addresss.PostalCode}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Creation.CurrentUser.Addresss.Street}"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Creation.CurrentUser.Addresss.City}"/>
+                <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Creation.CurrentUser.Addresss.Region}"/>
+                <TextBox Grid.Row="4" Grid.Column="3" Text="{Binding Creation.CurrentUser.Addresss.PostalCode}"/>
             </Grid>
         </Grid>
     </Grid>

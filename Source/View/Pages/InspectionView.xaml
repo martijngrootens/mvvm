@@ -20,9 +20,17 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBox Grid.Column="0" Text ="{Binding Inspection.NextIndex}"/>
-            <Button Grid.Column="1" Content="Select" Command="{Binding Inspection.SelectCommand}"/>
+            <Button Grid.Column="0" Content="First" Command="{Binding Inspection.SelectFirstCommand}"/>
+            <Button Grid.Column="1" Content="&lt;&lt;" Command="{Binding Inspection.SelectPreviousCommand}"/>
+            <TextBox Grid.Column="2" Text ="{Binding Inspection.NextIndex}"/>
+            <Button Grid.Column="3" Content="Select" Command="{Binding Inspection.SelectCommand}"/>
+            <Button Grid.Column="4" Content="&gt;&gt;" Command="{Binding Inspection.SelectNextCommand}"/>
+            <Button Grid.Column="5" Content="Last" Command="{Binding Inspection.SelectLastCommand}"/>
         </Grid>
 
         <!--Data Display-->
