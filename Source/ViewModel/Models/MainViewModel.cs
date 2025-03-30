@@ -8,13 +8,23 @@
     public class MainViewModel
     {
         /// <summary>
+        /// Singleton instance
+        /// </summary>
+        private static MainViewModel? instance;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="MainViewModel"/> class.
         /// </summary>
-        public MainViewModel()
+        private MainViewModel()
         {
-            Data = new Data();
+            Data = [];
             Inspection = new InspectionViewModel(Data);
         }
+
+        /// <summary>
+        /// Gets the singleton instance
+        /// </summary>
+        public static MainViewModel Instance => instance ??= new MainViewModel();
 
         /// <summary>
         /// Gets the data used by the application
