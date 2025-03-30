@@ -1,13 +1,12 @@
-﻿<Page x:Class="Mvvm.View.InspectionView"
+﻿<Page x:Class="Mvvm.View.Pages.CreationView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Mvvm.View"
+      xmlns:local="clr-namespace:Mvvm.View.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Background="WhiteSmoke"
-      Title="Inspection">
+      Title="CreationView">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -15,14 +14,14 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!--Selection Menu-->
+        <!--Creation Menu-->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBox Grid.Column="0" Text ="{Binding Inspection.NextIndex}"/>
-            <Button Grid.Column="1" Content="Select" Command="{Binding Inspection.SelectCommand}"/>
+            <Button Grid.Column="0" Content="Create" Command="{Binding Creation.CreateCommand}"/>
+            <Button Grid.Column="1" Content="Save" Command="{Binding Creation.SaveCommand}"/>
         </Grid>
 
         <!--Data Display-->
@@ -53,11 +52,11 @@
                 <TextBlock Grid.Row="4" Grid.Column="0" Text="Date of Birth:"/>
                 <TextBlock Grid.Row="5" Grid.Column="0" Text="Sex:"/>
 
-                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Inspection.CurrentIndex}"/>
-                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Inspection.CurrentUser.Id}"/>
-                <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding Inspection.CurrentUser.FullName}"/>
-                <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding Inspection.CurrentUser.BirthDay}"/>
-                <TextBlock Grid.Row="5" Grid.Column="4" Text="{Binding Inspection.CurrentUser.Sex}"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding NumUsers}"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Creation.CurrentUser.Id}"/>
+                <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding Creation.CurrentUser.FullName}"/>
+                <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding Creation.CurrentUser.BirthDay}"/>
+                <TextBlock Grid.Row="5" Grid.Column="4" Text="{Binding Creation.CurrentUser.Sex}"/>
             </Grid>
 
             <!--Address Info-->
@@ -80,10 +79,10 @@
                 <TextBlock Grid.Row="3" Grid.Column="0" Text="Region:"/>
                 <TextBlock Grid.Row="4" Grid.Column="0" Text="PostalCode:"/>
 
-                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Inspection.CurrentUser.Addresss.Street}"/>
-                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Inspection.CurrentUser.Addresss.City}"/>
-                <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding Inspection.CurrentUser.Addresss.Region}"/>
-                <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding Inspection.CurrentUser.Addresss.PostalCode}"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Creation.CurrentUser.Addresss.Street}"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Creation.CurrentUser.Addresss.City}"/>
+                <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding Creation.CurrentUser.Addresss.Region}"/>
+                <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding Creation.CurrentUser.Addresss.PostalCode}"/>
             </Grid>
         </Grid>
     </Grid>

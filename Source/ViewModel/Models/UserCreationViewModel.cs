@@ -1,6 +1,5 @@
 ﻿namespace Mvvm.ViewModel.Models
 {
-    using System.Diagnostics;
     using System.Windows.Input;
     using Mvvm.Library.Data;
     using Mvvm.Model;
@@ -13,7 +12,7 @@
         : ViewModelBase
     {
         /// <summary>
-        /// Private field for the <see cref="User"/> property;
+        /// Private field for the <see cref="CurrentUser"/> property;
         /// </summary>
         private User? user;
 
@@ -24,15 +23,15 @@
         public UserCreationViewModel(UserDataBase data)
             : base(data)
         {
-            CreateNew();
-            CreateNewCommand = new Command { Action = CreateNew };
+            Create();
+            CreateCommand = new Command { Action = Create };
             SaveCommand = new Command { Action = Save };
         }
 
         /// <summary>
         /// Gets the person currently being created
         /// </summary>
-        public User User
+        public User CurrentUser
         {
             get => user;
             private set
@@ -48,7 +47,7 @@
         /// <summary>
         /// Gets the command for creating a new user
         /// </summary>
-        public ICommand CreateNewCommand { get; }
+        public ICommand CreateCommand { get; }
 
         /// <summary>
         /// Gets the command for saving the current user
@@ -58,24 +57,11 @@
         /// <summary>
         /// Start creation of a new user
         /// </summary>
-        private void CreateNew() => User = new User();
+        private void Create() => CurrentUser = new User();
 
         /// <summary>
         /// Save the user that is currently being created
         /// </summary>
-        private void Save()
-        {
-            if (Data.Contains(User))
-            {
-                Trace.WriteLine($"{User} already saved");
-            }
-            else
-            {
-                Trace.WriteLine($"Saving {User}...");
-                Data.Add(User);
-            }
-
-            CreateNew();
-        }
+        private void Save() => Data.Add(CurrentUser);
     }
 }

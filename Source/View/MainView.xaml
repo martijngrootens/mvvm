@@ -18,8 +18,8 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="Number of entries: "/>
-            <TextBlock Grid.Column="1" Text="{Binding Data.Count}"/>
+            <TextBlock Grid.Column="0" Text="Number of users: "/>
+            <TextBlock Grid.Column="1" Text="{Binding NumUsers}"/>
         </Grid>
         
         <!--Tab control with pages-->
@@ -28,9 +28,7 @@
                 <Frame Source="./Pages/InspectionView.xaml" Background="WhiteSmoke"/>
             </TabItem>
             <TabItem Header="Create">
-                <Grid Background="#FFE5E5E5">
-                    
-                </Grid>
+                <Frame Source="./Pages/CreationView.xaml" Background="WhiteSmoke"/>
             </TabItem>
         </TabControl>
     </Grid>

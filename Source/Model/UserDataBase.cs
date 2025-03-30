@@ -1,13 +1,18 @@
 ﻿namespace Mvvm.Model
 {
+    using System.Diagnostics;
     using Mvvm.Library.Data;
 
     /// <summary>
     /// The "data base" which stores personal information.
     /// </summary>
     public class UserDataBase
-        : List<User>
     {
+        /// <summary>
+        /// The users
+        /// </summary>
+        private readonly List<User> users = [];
+
         /// <summary>
         /// Initializes a new instance of the <see cref="UserDataBase"/> class.
         /// </summary>
@@ -58,6 +63,56 @@
                     },
                 },
             ]);
+        }
+
+        /// <summary>
+        /// Notification of change in number of users
+        /// </summary>
+        public event EventHandler? NumUsersChanged;
+
+        /// <summary>
+        /// Gets the number of users
+        /// </summary>
+        public int Count => users.Count;
+
+        /// <summary>
+        /// Gets the user at the given index
+        /// </summary>
+        /// <param name="index">User index</param>
+        /// <returns>The user at that index</returns>
+        public User this[int index] => users[index];
+
+        /// <summary>
+        /// Adds a user to the list, only if none with that id exists
+        /// </summary>
+        /// <param name="newUser">The new user to add</param>
+        public void Add(User newUser)
+        {
+            var query = from user in users
+                        where user.Id == newUser.Id
+                        select user;
+
+            if (query.Any())
+            {
+                Trace.WriteLine($"User with id {newUser} already exists. Ignore.");
+            }
+            else
+            {
+                users.Add(newUser);
+            }
+
+            NumUsersChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        /// <summary>
+        /// Adds the collection of users
+        /// </summary>
+        /// <param name="newUsers">The new users to add</param>
+        public void AddRange(IEnumerable<User> newUsers)
+        {
+            users.AddRange(newUsers.Distinct());
+
+            NumUsersChanged?.Invoke(this, EventArgs.Empty);
         }
 
         /// <summary>
