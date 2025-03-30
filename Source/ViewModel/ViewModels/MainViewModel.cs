@@ -1,6 +1,6 @@
-﻿namespace Mvvm.ViewModel.Models
+﻿namespace UserManagement.Application.ViewModels
 {
-    using Mvvm.Library.Data;
+    using UserManagement.Library.Data;
 
     /// <summary>
     /// Main view model for the application

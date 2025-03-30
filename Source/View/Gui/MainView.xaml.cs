@@ -1,7 +1,7 @@
-﻿namespace Mvvm.View
+﻿namespace UserManagement.Application.Gui
 {
     using System.Windows;
-    using Mvvm.ViewModel.Models;
+    using UserManagement.Application.ViewModels;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml

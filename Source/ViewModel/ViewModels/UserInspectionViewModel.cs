@@ -1,10 +1,10 @@
-﻿namespace Mvvm.ViewModel.Models
+﻿namespace UserManagement.Application.ViewModels
 {
     using System.Diagnostics;
     using System.Windows.Input;
-    using Mvvm.Library.Data;
-    using Mvvm.Model;
-    using Mvvm.ViewModel.Library;
+    using UserManagement.Application.Library;
+    using UserManagement.Data;
+    using UserManagement.Library.Data;
 
     /// <summary>
     /// View model for inspecting database records

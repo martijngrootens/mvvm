@@ -1,12 +1,13 @@
-﻿namespace Mvvm.View
+﻿namespace UserManagement.Application.Gui.Pages
 {
     using System.Windows.Controls;
-    using Mvvm.ViewModel.Models;
+    using UserManagement.Application.ViewModels;
 
     /// <summary>
     /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class InspectionView : Page
+    public partial class InspectionView
+        : Page
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InspectionView"/> class.

@@ -1,7 +1,7 @@
-﻿namespace Mvvm.View.Pages
+﻿namespace UserManagement.Application.Gui.Pages
 {
     using System.Windows.Controls;
-    using Mvvm.ViewModel.Models;
+    using UserManagement.Application.ViewModels;
 
     /// <summary>
     /// Interaction logic for CreationView.xaml

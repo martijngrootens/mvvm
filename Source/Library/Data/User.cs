@@ -1,4 +1,4 @@
-﻿namespace Mvvm.Library.Data
+﻿namespace UserManagement.Library.Data
 {
     using System;
 

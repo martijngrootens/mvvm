@@ -1,4 +1,4 @@
-﻿namespace Mvvm.ViewModel.Library
+﻿namespace UserManagement.Application.Library
 {
     using System;
     using System.Windows.Input;

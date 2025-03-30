@@ -1,7 +1,7 @@
-﻿namespace Mvvm.Model
+﻿namespace UserManagement.Data
 {
     using System.Diagnostics;
-    using Mvvm.Library.Data;
+    using UserManagement.Library.Data;
 
     /// <summary>
     /// The "data base" which stores personal information.

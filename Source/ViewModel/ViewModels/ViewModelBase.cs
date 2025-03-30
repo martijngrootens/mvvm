@@ -1,8 +1,8 @@
-﻿namespace Mvvm.ViewModel.Models
+﻿namespace UserManagement.Application.ViewModels
 {
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
-    using Mvvm.Model;
+    using UserManagement.Data;
 
     /// <summary>
     /// Base class for view models that work with the data

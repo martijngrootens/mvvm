@@ -1,4 +1,4 @@
-﻿namespace Mvvm.Library.Data
+﻿namespace UserManagement.Library.Data
 {
     /// <summary>
     /// Representation of an address for a house or building.
