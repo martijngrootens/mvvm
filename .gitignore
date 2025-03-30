@@ -3,6 +3,7 @@ package
 reports
 
 # User data
+.vs/
 *.suo
 *.user
 *.sln.docstates
