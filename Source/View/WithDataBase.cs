@@ -4,17 +4,16 @@
     using Mvvm.ViewModel.Models;
 
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Base class with reference to daa
     /// </summary>
-    public partial class MainWindow
+    public abstract class WithDataBase
         : Window
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// Initializes a new instance of the <see cref="WithDataBase"/> class.
         /// </summary>
-        public MainWindow()
+        protected WithDataBase()
         {
-            InitializeComponent();
             MainViewModel = MainViewModel.Instance;
             DataContext = MainViewModel;
         }
