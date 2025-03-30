@@ -5,7 +5,7 @@
     /// <summary>
     /// Representation of a person.
     /// </summary>
-    public class Person
+    public class User
     {
         /// <summary>
         /// Gets or setst the identifier.

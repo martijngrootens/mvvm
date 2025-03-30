@@ -8,7 +8,7 @@
     /// Base class for view models that work with the data
     /// </summary>
     /// <param name="data">The data set to inspect</param>
-    public class DataViewModelBase(Data data)
+    public class ViewModelBase(UserDataBase data)
         : INotifyPropertyChanged
     {
         /// <inheritdoc/>
@@ -17,7 +17,7 @@
         /// <summary>
         /// Gets the reference to the data
         /// </summary>
-        protected Data Data { get; } = data;
+        protected UserDataBase Data { get; } = data;
 
         /// <summary>
         /// Invokes the <see cref="PropertyChanged"/> event if the value is indeed changed.

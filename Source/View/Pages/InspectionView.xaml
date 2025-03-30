@@ -54,10 +54,10 @@
                 <TextBlock Grid.Row="5" Grid.Column="0" Text="Sex:"/>
 
                 <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Inspection.CurrentIndex}"/>
-                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Inspection.Selection.Id}"/>
-                <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding Inspection.Selection.FullName}"/>
-                <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding Inspection.Selection.BirthDay}"/>
-                <TextBlock Grid.Row="5" Grid.Column="4" Text="{Binding Inspection.Selection.Sex}"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Inspection.CurrentUser.Id}"/>
+                <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding Inspection.CurrentUser.FullName}"/>
+                <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding Inspection.CurrentUser.BirthDay}"/>
+                <TextBlock Grid.Row="5" Grid.Column="4" Text="{Binding Inspection.CurrentUser.Sex}"/>
             </Grid>
 
             <!--Address Info-->
@@ -80,10 +80,10 @@
                 <TextBlock Grid.Row="3" Grid.Column="0" Text="Region:"/>
                 <TextBlock Grid.Row="4" Grid.Column="0" Text="PostalCode:"/>
 
-                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Inspection.Selection.Addresss.Street}"/>
-                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Inspection.Selection.Addresss.City}"/>
-                <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding Inspection.Selection.Addresss.Region}"/>
-                <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding Inspection.Selection.Addresss.PostalCode}"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Inspection.CurrentUser.Addresss.Street}"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Inspection.CurrentUser.Addresss.City}"/>
+                <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding Inspection.CurrentUser.Addresss.Region}"/>
+                <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding Inspection.CurrentUser.Addresss.PostalCode}"/>
             </Grid>
         </Grid>
     </Grid>

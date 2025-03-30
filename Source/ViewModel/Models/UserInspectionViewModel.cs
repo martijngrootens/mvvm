@@ -1,6 +1,7 @@
 ﻿namespace Mvvm.ViewModel.Models
 {
     using System.Diagnostics;
+    using System.Windows.Input;
     using Mvvm.Library.Data;
     using Mvvm.Model;
     using Mvvm.ViewModel.Library;
@@ -8,8 +9,8 @@
     /// <summary>
     /// View model for inspecting database records
     /// </summary>
-    public class InspectionViewModel
-        : DataViewModelBase
+    public class UserInspectionViewModel
+        : ViewModelBase
     {
         /// <summary>
         /// Private field for the <see cref="NextIndex"/> property.
@@ -24,13 +25,13 @@
         /// <summary>
         /// Private field for the <see cref="Selection"/> property
         /// </summary>
-        private Person? selection;
+        private User? current;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InspectionViewModel"/> class.
+        /// Initializes a new instance of the <see cref="UserInspectionViewModel"/> class.
         /// </summary>
         /// <param name="data">The data set to use</param>
-        public InspectionViewModel(Data data)
+        public UserInspectionViewModel(UserDataBase data)
             : base(data)
         {
             SelectCommand = new Command { Action = Select };
@@ -73,37 +74,32 @@
         /// <summary>
         /// Gets the selected person.
         /// </summary>
-        public Person Selection
+        public User CurrentUser
         {
-            get => selection;
+            get => current;
             private set
             {
-                if (selection != value)
+                if (current != value)
                 {
-                    selection = value;
+                    current = value;
                     OnPropertyChanged();
                 }
             }
         }
 
         /// <summary>
-        /// Gets the name of the selected person
-        /// </summary>
-        public string Name => $"{Selection.FirstName} {Selection.LastName}";
-
-        /// <summary>
         /// Gets the command for selecting the next user
         /// </summary>
-        public Command SelectCommand { get; }
+        public ICommand SelectCommand { get; }
 
         /// <summary>
         /// Select the next person from th database
         /// </summary>
         private void Select()
         {
-            Trace.WriteLine($"[CLICK]");
+            Trace.WriteLine($"Select [{NextIndex}]");
             CurrentIndex = NextIndex;
-            Selection = Data[CurrentIndex];
+            CurrentUser = Data[CurrentIndex];
         }
     }
 }

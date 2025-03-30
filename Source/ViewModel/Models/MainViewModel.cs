@@ -18,7 +18,7 @@
         private MainViewModel()
         {
             Data = [];
-            Inspection = new InspectionViewModel(Data);
+            Inspection = new UserInspectionViewModel(Data);
         }
 
         /// <summary>
@@ -29,11 +29,11 @@
         /// <summary>
         /// Gets the data used by the application
         /// </summary>
-        public Data Data { get; }
+        public UserDataBase Data { get; }
 
         /// <summary>
         /// Gets the inspection view model
         /// </summary>
-        public InspectionViewModel Inspection { get; }
+        public UserInspectionViewModel Inspection { get; }
     }
 }

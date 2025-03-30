@@ -5,13 +5,13 @@
     /// <summary>
     /// The "data base" which stores personal information.
     /// </summary>
-    public class Data
-        : List<Person>
+    public class UserDataBase
+        : List<User>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Data"/> class.
+        /// Initializes a new instance of the <see cref="UserDataBase"/> class.
         /// </summary>
-        public Data()
+        public UserDataBase()
         {
             AddRange(
             [
